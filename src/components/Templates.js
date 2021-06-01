@@ -5,9 +5,9 @@ import { Dummydata } from "../dummydata";
 
 export const Templates = () => {
   const dispatch = useDispatch();
-  const { templateList, loading, errors } = useSelector(
-    (state) => state.templates
-  );
+  // const { templateList, loading, errors } = useSelector(
+  //   (state) => state.templates
+  // );
   useEffect(() => {
     const getAllTemplates = dispatch(getTemplates());
     console.log(getAllTemplates);
