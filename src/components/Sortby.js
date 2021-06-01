@@ -3,14 +3,14 @@ import React from "react";
 export const Sortby = () => {
   return (
     <div>
-      <form className="flex items-center text-sm md:text-base">
+      <form className="flex items-center text-sm md:text-base font-circular">
         <p className="md:mr-8 text-gray-400 hidden md:block text-sm font-normal">
           Sort By:{" "}
         </p>
         <div className="mr-3 md:mr-6">
           <fieldset
             className="text-gray-400 px-2 md:px-4 py-1 rounded-sm"
-            style={{ border: "1px solid lightgray" }}
+            style={{ border: "1.5px solid lightgray" }}
           >
             <legend className="text-xs">Category</legend>
             <select className="text-black font-Inter bg-white border-none py-1 px-0 md:px-4 outline-none">
@@ -27,7 +27,7 @@ export const Sortby = () => {
         <div className="mr-3 md:mr-6">
           <fieldset
             className="text-gray-400 px-2 md:px-4 py-1 rounded-sm"
-            style={{ border: "1px solid lightgray" }}
+            style={{ border: "1.5px solid lightgray" }}
           >
             <legend className="text-xs">Order</legend>
             <select className="text-black font-Inter bg-white border-none py-1 px-0 md:px-4 outline-none">
@@ -39,7 +39,7 @@ export const Sortby = () => {
         <div>
           <fieldset
             className="text-gray-400 px-2 md:px-4 py-1 rounded-sm"
-            style={{ border: "1px solid lightgray" }}
+            style={{ border: "1.5px solid lightgray" }}
           >
             <legend className="text-xs">Date</legend>
             <select className="text-black font-Inter bg-white border-none py-1 px-0 md:px-4 outline-none">

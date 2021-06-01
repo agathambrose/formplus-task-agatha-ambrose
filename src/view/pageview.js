@@ -6,7 +6,7 @@ import { Templates } from "../components/Templates";
 
 export const PageView = () => {
   return (
-    <div className="mt-8 w-11/12 font-Inter">
+    <div className="mt-8 w-11/12">
       <div>
         <div className="flex flex-col md:flex-col lg:flex-row justify-between items-center">
           <Search />
