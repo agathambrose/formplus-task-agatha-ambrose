@@ -8,9 +8,8 @@ export const getTemplates = createAsyncThunk(
       const response = await axios.get(
         "https://front-end-task-dot-fpls-dev.uc.r.appspot.com/api/v1/public/task_templates"
       );
-      const { data } = response.data;
-      console.log(response.data);
-      return data[0];
+      const { data } = response;
+      return data;
     } catch (error) {
       console.log({ ...error });
     }

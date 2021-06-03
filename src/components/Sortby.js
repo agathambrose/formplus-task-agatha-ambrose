@@ -1,6 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+// import { matchSorter } from "match-sorter";
 
 export const Sortby = () => {
+  const { templateList } = useSelector((state) => state.templates);
+  const dropDwn = templateList.slice(0, 3);
   return (
     <div>
       <form className="flex items-center text-sm md:text-base font-circular">
@@ -14,12 +18,19 @@ export const Sortby = () => {
           >
             <legend className="text-xs">Category</legend>
             <select className="text-black font-Inter bg-white border-none py-1 px-0 md:px-4 outline-none">
-              <option className="text-base" value="All">
-                All
-              </option>
-              <option value="Education">Education</option>
-              <option value="E-commerce">E-commerce</option>
-              <option value="Health">Health</option>
+              {templateList.length < 1 ? (
+                <h2 className="text-center font-bold text-2xl my-5 font-circular">
+                  Loading...
+                </h2>
+              ) : (
+                dropDwn.map(({ category, key }) => {
+                  return (
+                    <option className="text-base" value="All" key={key}>
+                      {category[0]}
+                    </option>
+                  );
+                })
+              )}
             </select>
           </fieldset>
         </div>
