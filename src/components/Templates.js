@@ -2,17 +2,14 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getTemplates } from "../redux/features/slice/templateSlice";
 import { Pagination } from "./Pagination";
-// import { Dummydata } from "../dummydata";
 
-export const Templates = () => {
+export const Templates = ({ list }) => {
   const dispatch = useDispatch();
 
-  const { templateList, loading, errors } = useSelector(
-    (state) => state.templates
-  );
+  const { loading, errors } = useSelector((state) => state.templates);
 
   const errorMessage = errors ? (
-    <h2 className="text-center font-bold h-screen text-2xl my-5 font-circular">
+    <h2 className="h-screen my-5 text-2xl font-bold text-center font-circular">
       Oops! An error occurred
     </h2>
   ) : (
@@ -23,44 +20,44 @@ export const Templates = () => {
     const getAllTemplates = async () => {
       const res = await dispatch(getTemplates());
       console.log(res);
+      // console.log("list", list);
     };
     getAllTemplates();
   }, [dispatch]);
 
-  const list = templateList.slice(0, 21);
-  console.log(list);
+  if (list.length > 0) list = list.slice(0, 21);
 
   return (
-    <div className="mt-8 w-full">
-      <div className="flex justify-between items-center">
-        <h3 className="font-medium font-circular text-lg text-gray-800">
+    <div className="w-full mt-8">
+      <div className="flex items-center justify-between">
+        <h3 className="text-lg font-medium text-gray-800 font-circular">
           All templates
         </h3>
-        <h4 className="font-medium font-circular text-sm text-gray-500">
+        <h4 className="text-sm font-medium text-gray-500 font-circular">
           2000 templates
         </h4>
       </div>
-      <div className="flex flex-wrap justify-center items-center my-4">
+      <div className="flex flex-wrap items-center justify-center my-4">
         {errorMessage}
-        {templateList.length < 1 && loading ? (
-          <h2 className="text-center font-bold h-screen text-2xl my-5 font-circular">
-            Loading...
+        {list.length < 1 && loading ? (
+          <h2 className="h-screen my-5 text-2xl font-bold text-center font-circular">
+            Loading Templates...
           </h2>
         ) : (
           list.map(({ category, key, description, name, link }) => {
             return (
-              <div key={key} id={category} className="lg:w-1/3 sm:w-1/2 my-4">
-                <div className="flex flex-col max-h-80 w-11/12 mx-3 pt-8 bg-white border-2 border-gray-300 shadow-list md:shadow-md rounded-md">
-                  <h3 className="px-4 font-circular capitalize font-bold text-2xl mb-4">
+              <div key={key} id={category} className="my-4 lg:w-1/3 sm:w-1/2">
+                <div className="flex flex-col w-11/12 pt-8 mx-3 bg-white border-2 border-gray-300 rounded-md max-h-80 shadow-list md:shadow-md">
+                  <h3 className="px-4 mb-4 text-2xl font-bold capitalize font-circular">
                     {name}
                   </h3>
-                  <p className="px-4 font-Inter text-neautraltext font-normal">
+                  <p className="px-4 font-normal font-Inter text-neautraltext">
                     {description}
                   </p>
                   <br />
                   <a
                     href={link}
-                    className="mt-5 bg-linkgray p-4 font-circular rounded-b-md no-underline text-linkgreen font-normal leading-6"
+                    className="p-4 mt-5 font-normal leading-6 no-underline bg-linkgray font-circular rounded-b-md text-linkgreen"
                   >
                     Use Template
                   </a>
@@ -78,5 +75,5 @@ export const Templates = () => {
 // Todo
 // 1. make sure the fonts are the same with that of the design on figma
 
-//documentation
+//Note
 //I made use of shadow-lg for medium to large screens and 0px 4px 30px rgba(0, 0, 0, 0.08)stipulated on the figma file for small screens like phones

@@ -26,7 +26,7 @@ export const Search = () => {
           style={{ border: "1.5px solid lightgray" }}
           type="text"
           placeholder="Search Templates"
-          className="md:pl-6 pl-3 md:pr-5 py-2 text-sm rounded-sm placeholder-gray-400 w-80 h-8 outline-none font-circular"
+          className="h-8 py-2 pl-3 text-sm placeholder-gray-400 rounded-sm outline-none md:pl-6 md:pr-5 w-80 font-circular"
           value={value}
           onChange={(e) => {
             setValue(e.target.value);
@@ -38,7 +38,7 @@ export const Search = () => {
           }}
         />
         <button
-          className="absolute top-2 left-72 md:left-80 text-3xl text-gray-400 border-none bg-white outline-none"
+          className="absolute text-3xl text-gray-400 bg-white border-none outline-none top-2 left-72 md:left-80"
           onSubmit={matchSorter}
         >
           <IoIosSearch />
